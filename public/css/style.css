@@ -1,0 +1,120 @@
+*{
+    font-family: sans-serif;
+}
+.signin-page{
+    background-color: white;
+}
+.tittle,.signin-tittle{
+    margin-top: 2%;
+    text-align: center;
+    color: #4D96FF;
+}
+.signin-box{
+    margin: 2% 30% 30% 30%;
+    width: 40vw;
+    height: 400px;
+    border: 3px solid whitesmoke;
+    border-radius: 10%;
+    padding-top: 2%;
+}
+.signin-content{
+    padding: 2% 10% 0 8%;
+}
+.signin-tittle{
+    font-size: 25px;
+    
+}
+.signin-content input{
+    width: 80%;
+    height: 50px;
+    border-radius: 10px;
+    margin: 2% 0 0 13%;
+    padding-left: 5%;
+    border: 3px solid whitesmoke;
+}
+.signin-content a{
+    margin: 2% 0 1% 13%;
+    color: #4D96FF;
+    text-decoration: none
+}
+.signin-content button{
+    margin: 2% 0 0% 35%;
+    width: 150px;
+    height: 50px;
+    border-radius: 10px;
+    border: 1px hidden #4cae4c;
+    background-color: #6BCB77;
+    color:white;
+    font-weight: 700;
+}
+.signin-content button:hover{
+    background-color: #4cae4c;
+}
+.signin-content h4{
+    margin: 2% 0 1% 13%;
+    color: #4D96FF;
+    font-size: 16px;
+}
+
+table {
+    font-family: arial, sans-serif;
+    border-collapse: collapse;
+    width: 100%;
+}
+  
+td, th {
+    border: 1px solid #dddddd;
+    text-align: left;
+    padding: 8px;
+}
+  
+tr:nth-child(even) {
+    background-color:rgb(114, 215, 243);
+}
+
+.statistical-number{
+    display:flex;
+    justify-content:space-around;
+    margin-top: 2%;
+    margin-bottom: 2%;
+}
+.statistical-number-style{
+    width: 25%;
+    color: white;
+    text-align: center;
+}
+.statistical-number-style:nth-child(odd){
+    background-color: rgb(114, 215, 243);
+}
+.statistical-number-style:nth-child(even){
+    background-color: rgb(255, 102, 82);
+}
+
+.statistical-list{
+    display: flex;
+    justify-content:space-around;
+}
+
+.form-customer{
+    background-color: white;
+    margin: 2% 0 0 2%;
+    width: 50%;
+    text-align: center;
+}
+.form-customer h5{
+    color: rgb(114, 215, 243);
+    font-weight: 700;
+}
+.form-customer input{
+    margin-top: 2%;
+    width: 75%;
+    border: 1px solid black;
+    padding: 1%;
+}
+.form-customer button{
+    margin: 2% 0 2% 0;
+    width: 15%;
+    background-color: #02599b;
+    color: white;
+    font-weight: 700;
+}
