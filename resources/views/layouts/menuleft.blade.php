@@ -14,30 +14,9 @@
                         </a>
                     </li>
                     <li>
-                        <a href="#submenu1" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-speedometer2"></i> <span class="ms-1 d-none d-sm-inline">Quản lý khách
-                                hàng</span>
-                        </a>
-                        <ul class="collapse show nav flex-column ms-1" id="submenu1" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="{{ url('customers/create') }}" class="nav-link px-0"> <span
-                                        class="d-none d-sm-inline">Thêm khách
-                                        hàng</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('deleteCustomer') }}" class="nav-link px-0"> <span
-                                        class="d-none d-sm-inline">Xóa khách
-                                        hàng</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('customers/edit') }}" class="nav-link px-0"> <span
-                                        class="d-none d-sm-inline">Chỉnh sửa
-                                        khách hàng</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="{{ url('customers') }}" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Quản lý khách
+                                hàng</span></a>
                     </li>
                     <li>
                         <a href="#" class="nav-link px-0 align-middle">
@@ -45,54 +24,14 @@
                                 quyền</span></a>
                     </li>
                     <li>
-                        <a href="#submenu2" data-bs-toggle="collapse" class="nav-link px-0 align-middle ">
-                            <i class="fs-4 bi-bootstrap"></i> <span class="ms-1 d-none d-sm-inline">Quản lý đơn
+                        <a href="{{ url('orders') }}" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Quản lý đơn
                                 hàng</span></a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu2" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="{{ url('orders/create') }}" class="nav-link px-0"> <span
-                                        class="d-none d-sm-inline">Thêm đơn
-                                        hàng</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('deleteOrder') }}" class="nav-link px-0"> <span
-                                        class="d-none d-sm-inline">Xóa đơn
-                                        hàng</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('updateOrder') }}" class="nav-link px-0"> <span
-                                        class="d-none d-sm-inline">Chỉnh sửa đơn
-                                        hàng</span>
-                                </a>
-                            </li>
-                        </ul>
                     </li>
                     <li>
-                        <a href="#submenu3" data-bs-toggle="collapse" class="nav-link px-0 align-middle">
-                            <i class="fs-4 bi-grid"></i> <span class="ms-1 d-none d-sm-inline">Quản lý công ty</span>
-                        </a>
-                        <ul class="collapse nav flex-column ms-1" id="submenu3" data-bs-parent="#menu">
-                            <li class="w-100">
-                                <a href="{{ url('companys/create') }}" class="nav-link px-0"> <span
-                                        class="d-none d-sm-inline">Thêm công
-                                        ty</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('deleteCompany') }}" class="nav-link px-0"> <span
-                                        class="d-none d-sm-inline">Xóa công
-                                        ty</span>
-                                </a>
-                            </li>
-                            <li>
-                                <a href="{{ url('updateCompany') }}" class="nav-link px-0"> <span
-                                        class="d-none d-sm-inline">Chỉnh sửa công
-                                        ty</span>
-                                </a>
-                            </li>
-                        </ul>
+                        <a href="{{ url('companys') }}" class="nav-link px-0 align-middle">
+                            <i class="fs-4 bi-table"></i> <span class="ms-1 d-none d-sm-inline">Quản lý công
+                                ty</span></a>
                     </li>
                 </ul>
                 <hr>

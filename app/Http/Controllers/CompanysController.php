@@ -9,6 +9,10 @@ use Illuminate\Http\Request;
 class CompanysController extends Controller
 {
     //
+    public function index(){
+        $companyList=DB::table('company')->select('*')->get();
+        return view('companys.indexCompany', compact('companyList'));
+    }
     public function create(){
         return view('companys.addCompany');
     }
@@ -19,15 +23,25 @@ class CompanysController extends Controller
         $company->TENCT = $request->input('nameCompany');
         $company->THONGTIN = $request->input('inforCompany');
         $company->save();
-        return redirect('/companys/create');
+        return redirect('/companys');
 
     }
-    public function deleteCompany(){
-        $companyList=DB::table('company')->select('*')->get();
-        return view('companys.deleteCompany', compact('companyList'));
+    public function edit($MACT){
+        $companyEdit=DB::table('company')->where('MACT', $MACT)->first();
+        return view('companys.updateCompany')->with('companyEdit', $companyEdit);
     }
-    public function updateCompany(){
-        $companyList=DB::table('company')->select('*')->get();
-        return view('companys.updateCompany', compact('companyList'));
+    public function update(request $request, $MACT){
+        $companyUpdate=DB::table('company')->where('MACT', $MACT)
+                        ->update([
+                            'MACT'=>$request->input('idCompany'),
+                            'TENCT'=>$request->input('nameCompany'),
+                            'THONGTIN'=>$request->input('inforCompany')
+                        ]);
+        return redirect('/companys');
+    }
+
+    public function destroy($MACT){
+        $companyDelete=DB::table('company')->where('MACT', $MACT)->delete();
+        return redirect('/companys');
     }
 }

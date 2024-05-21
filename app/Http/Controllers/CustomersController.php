@@ -8,9 +8,12 @@ use App\Models\Customer;
 
 class CustomersController extends Controller
 {
+    public function index(){
+        $customerList=DB::table('customer')->select('*')->get();
+        return view('customers.indexCustomer', compact('customerList'));
+    }
     public function create(){
-        $companyList = DB::table('company')->select('*')->get();
-        return view('customers.addCustomer', compact('companyList'));
+        return view('customers.addCustomer');
     }
 
     public function store(Request $request){
@@ -21,17 +24,30 @@ class CustomersController extends Controller
         $customer->SODIENTHOAI = $request->input('phoneCustomer');
         $customer->EMAIL = $request->input('emailCustomer');
         $customer->save();
-        return redirect('/customers/create');
+        return redirect('/customers');
 
     }
 
-    public function edit($id){
-        return view('customers.updateCustomer');
+    public function edit($MAKH){
+        $customerEdit=DB::table('customer')->where('MAKH', $MAKH)->first();
+        return view('customers.updateCustomer')->with('customerEdit', $customerEdit);
     }
 
-    public function deleteCustomer(){
-        $customerList = DB::table('customer')->select('*')->get();
-        return view('customers.deleteCustomer', compact('customerList'));
+    public function update(request $request, $MAKH){
+        $customerUpdate=DB::table('customer')->where('MAKH', $MAKH)
+                        ->update([
+                            'MAKH'=>$request->input('idCustomer'),
+                            'TENKH'=>$request->input('nameCustomer'),
+                            'DIACHI'=>$request->input('addressCustomer'),
+                            'SODIENTHOAI'=>$request->input('phoneCustomer'),
+                            'EMAIL'=>$request->input('emailCustomer')
+                        ]);
+        return redirect('/customers');
+    }
+
+    public function destroy($MAKH){
+        $customerDelete=DB::table('customer')->where('MAKH', $MAKH)->delete();
+        return redirect('/customers');
     }
 
 }
