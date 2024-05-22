@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\DB;
 use App\Models\Order;
+use App\Rules\Uppercase;
 
 class OrdersController extends Controller
 {
@@ -19,14 +20,21 @@ class OrdersController extends Controller
 
     }
     public function create(){
-        return view('orders.addOrder');
+        $customerList=DB::table('customer')->select('*')->get();
+        $productList=DB::table('product')->select('*')->get();
+        return view('orders.addOrder', compact('customerList', 'productList'));
     }
 
     public function store(Request $request){
+        $request->validate([
+            'idCustomer'=>'required',
+            'idProduct'=>'required',
+            'date'=>'required'
+        ]);
         $order = new Order();
-        $order->MAKH = $request->input('idCompany');
-        $order->MASP = $request->input('nameCompany');
-        $order->NGAYMUA = $request->input('inforCompany');
+        $order->MAKH = $request->input('idCustomer');
+        $order->MASP = $request->input('idProduct');
+        $order->NGAYMUA = $request->input('date');
         $order->save();
         return redirect('/orders');
 
@@ -38,6 +46,11 @@ class OrdersController extends Controller
         return view('orders.updateOrder', compact('orderEdit', 'customerOrderEdit', 'productOrderEdit'));
     }
     public function update(request $request, $MADH){
+        $request->validate([
+            'idCustomer'=>'required',
+            'idProduct'=>'required',
+            'date'=>'required|date'
+        ]);
         $orderUpdate=DB::table('order')->where('MADH', $MADH)
                         ->update([
                             'MAKH'=>$request->input('idCustomer'),

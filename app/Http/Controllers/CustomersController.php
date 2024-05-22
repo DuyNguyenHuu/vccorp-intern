@@ -5,6 +5,7 @@ use Illuminate\Support\Facades\DB;
 
 use Illuminate\Http\Request;
 use App\Models\Customer;
+use App\Rules\Uppercase;
 
 class CustomersController extends Controller
 {
@@ -17,6 +18,15 @@ class CustomersController extends Controller
     }
 
     public function store(Request $request){
+
+        
+        $request->validate([
+            'idCustomer'=>'required',
+            'nameCustomer'=>'required',
+            'addressCustomer'=>'required',
+            'phoneCustomer'=>'required|min_digits:10|max_digits:10',
+            'emailCustomer'=>'required|email'
+        ]);
         $customer = new Customer();
         $customer->MAKH = $request->input('idCustomer');
         $customer->TENKH = $request->input('nameCustomer');
@@ -28,12 +38,28 @@ class CustomersController extends Controller
 
     }
 
+    public function show($MAKH){
+        $customerShow=DB::table('order')
+                        ->join('product', 'order.masp', '=', 'product.masp')
+                        ->orderBy('order.ngaymua', 'desc')
+                        ->where('MAKH', $MAKH)
+                        ->select('order.*', 'product.*')
+                        ->get();
+        return view('customers.showCustomer', compact('customerShow'));
+    }
     public function edit($MAKH){
         $customerEdit=DB::table('customer')->where('MAKH', $MAKH)->first();
         return view('customers.updateCustomer')->with('customerEdit', $customerEdit);
     }
 
     public function update(request $request, $MAKH){
+        $request->validate([
+            'idCustomer'=>'required|unique:customer',
+            'nameCustomer'=>'required',
+            'addressCustomer'=>'required',
+            'phoneCustomer'=>'required|min_digits:10|max_digits:10',
+            'emailCustomer'=>'required|email'
+        ]);
         $customerUpdate=DB::table('customer')->where('MAKH', $MAKH)
                         ->update([
                             'MAKH'=>$request->input('idCustomer'),

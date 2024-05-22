@@ -5,7 +5,7 @@
     @foreach ($orderList as $row)
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <div class="ms-2 me-auto">
-                <div>{{ $row->MADH }}</div>
+                <div class="fw-bold">{{ $row->MADH }}</div>
                 <label>Mã khách hàng: </label>{{ $row->MAKH }}<br>
                 <label>Tên khách hàng: </label>{{ $row->TENKH }}<br>
                 <label>Mã sản phẩm: </label>{{ $row->MASP }}<br>

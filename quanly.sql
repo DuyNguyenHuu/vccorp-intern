@@ -3,7 +3,7 @@
 -- https://www.phpmyadmin.net/
 --
 -- Máy chủ: 127.0.0.1
--- Thời gian đã tạo: Th5 20, 2024 lúc 05:06 AM
+-- Thời gian đã tạo: Th5 22, 2024 lúc 07:15 AM
 -- Phiên bản máy phục vụ: 10.4.28-MariaDB
 -- Phiên bản PHP: 8.1.17
 
@@ -68,10 +68,10 @@ CREATE TABLE `company` (
 
 INSERT INTO `company` (`MACT`, `TENCT`, `THONGTIN`, `updated_at`, `created_at`) VALUES
 ('A', 'Công ty A', NULL, NULL, NULL),
-('B', 'Công ty B', NULL, NULL, NULL),
+('B', 'Công ty B', 'Giám đốc', NULL, NULL),
 ('C', 'Công ty C', NULL, NULL, NULL),
 ('D', 'Công ty D', NULL, NULL, NULL),
-('E', 'Công ty E', 'TNHH', '2024-05-18', '2024-05-18');
+('H', 'Công ty H', 'Hoàn Kiếm', '2024-05-22', '2024-05-22');
 
 -- --------------------------------------------------------
 
@@ -94,7 +94,6 @@ CREATE TABLE `customer` (
 --
 
 INSERT INTO `customer` (`MAKH`, `TENKH`, `DIACHI`, `SODIENTHOAI`, `EMAIL`, `updated_at`, `created_at`) VALUES
-('ANTV', 'Trần Viết An', 'Bắc Ninh', '0453646313', 'antv@gmail.com', NULL, NULL),
 ('BACHPX', 'Phạm Xuân Bách', 'Hà Nội', '0542352753', 'bachpx@gmail.com', NULL, NULL),
 ('CHIENNV', 'Nguyễn Văn Chiến', 'Vĩnh Phúc', '0683968323', 'chiennv@gmail.com', NULL, NULL),
 ('DIEPVTB', 'Vũ Thị Bích Diệp', 'Bắc Ninh', '0963548732', 'diepvtb@gmail.com', NULL, NULL),
@@ -109,7 +108,8 @@ INSERT INTO `customer` (`MAKH`, `TENKH`, `DIACHI`, `SODIENTHOAI`, `EMAIL`, `upda
 ('THANHMT', 'Mai Tiến Thành', 'Hải Dương', '0745635602', 'thanhmt@gmail.com', NULL, NULL),
 ('TRUNGLQ', 'Lại Quốc Trung', 'Quảng Ninh', '0639574351', 'trunglq@gmail.com', NULL, NULL),
 ('VIETNH', 'Nguyễn Hữu Việt', 'Hải Phòng', '0527547234', 'vietnh@gmail.com', NULL, NULL),
-('VNM', 'Nguyễn Minh Vũ', 'Vĩnh Tường, Vĩnh Phúc', '0985963473', 'vu@gmail.com', '2024-05-18', '2024-05-18');
+('VNM', 'Nguyễn Minh Vũ', 'Vĩnh Tường, Vĩnh Phúc', '0985963473', 'vu@gmail.com', '2024-05-18', '2024-05-18'),
+('VNMH', 'Nguyễn Minh Vũ', 'Vĩnh Tường, Vĩnh Phúc', '0985963473', 'vu@gmail.com', '2024-05-22', '2024-05-22');
 
 -- --------------------------------------------------------
 
@@ -131,7 +131,6 @@ CREATE TABLE `order` (
 --
 
 INSERT INTO `order` (`MADH`, `MAKH`, `MASP`, `NGAYMUA`, `updated_at`, `created_at`) VALUES
-(1, 'BACHPX', 'CBR150R', '2022-12-07', NULL, NULL),
 (2, 'DUNGLT', 'WAVERSX', '2024-04-17', NULL, NULL),
 (3, 'BACHPX', 'CBR150R', '2024-03-09', NULL, NULL),
 (4, 'DUNGLT', 'WAVERSX', '2024-02-19', NULL, NULL),
@@ -147,8 +146,10 @@ INSERT INTO `order` (`MADH`, `MAKH`, `MASP`, `NGAYMUA`, `updated_at`, `created_a
 (14, 'CHIENNV', 'SH125', '2023-07-24', NULL, NULL),
 (15, 'DIEPVTB', 'SH125', '2019-12-27', NULL, NULL),
 (16, 'VIETNH', 'ALPHA110', '2024-01-01', NULL, NULL),
-(17, 'DIEPVTB', 'LEAD125', '2024-05-18', '2024-05-18', '2024-05-18'),
-(18, 'DNH', 'SH160i', '2024-05-18', '2024-05-18', '2024-05-18');
+(17, 'DIEPVTB', 'SH125', '2024-05-21', '2024-05-18', '2024-05-18'),
+(18, 'DNH', 'SH160i', '2024-05-18', '2024-05-18', '2024-05-18'),
+(19, 'DUNGLT', 'LEAD125', '2024-05-22', '2024-05-22', '2024-05-22'),
+(20, 'MAINTP', 'BLADE2023', '2024-05-22', '2024-05-22', '2024-05-22');
 
 -- --------------------------------------------------------
 
@@ -273,7 +274,7 @@ ALTER TABLE `staff`
 -- AUTO_INCREMENT cho bảng `order`
 --
 ALTER TABLE `order`
-  MODIFY `MADH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+  MODIFY `MADH` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=21;
 
 --
 -- Các ràng buộc cho các bảng đã đổ

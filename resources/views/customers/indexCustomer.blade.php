@@ -5,7 +5,11 @@
     @foreach ($customerList as $row)
         <li class="list-group-item d-flex justify-content-between align-items-center">
             <div class="ms-2 me-auto">
-                <div>{{ $row->MAKH }}</div>
+                <div class="fw-bold">
+                    <a href="/customers/{{ $row->MAKH }}">
+                        {{ $row->MAKH }}
+                    </a>
+                </div>
                 <label>Tên khách hàng: </label>{{ $row->TENKH }}<br>
                 <label>Địa chỉ: </label>{{ $row->DIACHI }}<br>
                 <label>Số điện thoại: </label>{{ $row->SODIENTHOAI }}<br>

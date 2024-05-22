@@ -11,5 +11,14 @@
             <input type="text" name="emailCustomer" placeholder="Email"><br>
             <button type="submit">Xác nhận</button>
         </form>
+        @if ($errors->any())
+            <div>
+                @foreach ($errors->all() as $error)
+                    <p class="text-danger">
+                        {{ $error }}
+                    </p>
+                @endforeach
+            </div>
+        @endif
     </div>
 @endsection
